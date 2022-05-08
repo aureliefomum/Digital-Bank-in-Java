@@ -1,7 +1,7 @@
 package bancoDigital;
 
 public class ContaPoupanca {
-    public int agencia;
-    public int numero;
-    public double saldo;
+    private int agencia;
+    private int numero;
+    private double saldo;
 }
