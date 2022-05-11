@@ -1,19 +1,43 @@
 package bancoDigital;
 
 public class Main {
-    Cliente aurelie = new Cliente();
-    aurelie.setNome("Aurelie")  ;
-   // aurelie.setNome("Aurelie");
 
     public static void main(String[] args) {
-        Conta cc = new ContaCorrente();
-        cc.depositar(250);
+        //criando novo banco
+       Banco banco = new Banco() ;
 
-        Conta poupanca = new ContaPoupanca() ;
+         //criando primeiro cliente
+        Cliente aurelie = new Cliente();
+        aurelie.setNome("Aurelie")  ;
 
-        cc.transferir(250, poupanca);
+         //contas e transacoes de Aurelie
+        Conta ccAurelie = new ContaCorrente(aurelie);
+        ccAurelie.depositar(250);
 
-        cc.imprimirExtrato();
-        poupanca.imprimirExtrato();
+        Conta poupancaAurelie = new ContaPoupanca(aurelie) ;
+
+          //criando segundo cliente
+        Cliente pietro = new Cliente();
+        pietro.setNome("Pietro") ;
+
+        //contas do Pietro
+
+        Conta ccPietro = new ContaCorrente(pietro);
+        Conta poupancaPietro = new ContaPoupanca(pietro) ;
+
+
+        banco.adicionaNovaConta(ccAurelie);
+        banco.adicionaNovaConta(poupancaAurelie);
+        banco.adicionaNovaConta(ccPietro);
+        banco.adicionaNovaConta(poupancaPietro);
+
+
+        ccAurelie.transferir(250, poupancaAurelie);
+        ccAurelie.imprimirExtrato();
+        poupancaAurelie.imprimirExtrato();
+
+        ccPietro.depositar(450);
+
+     banco.imprimirListaClientes();
     }
 }
