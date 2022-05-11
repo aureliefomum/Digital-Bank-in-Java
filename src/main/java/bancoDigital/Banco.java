@@ -16,7 +16,6 @@ public class Banco {
    public void imprimirListaClientes() {
        System.out.println("=== Lista de Clientes do Banco ===");
        for (Conta conta : contas) {
-
            System.out.println("Nome do cliente:  " + conta.cliente.getNome()+ ": " + conta.getClass().getSimpleName());
        }
    }
